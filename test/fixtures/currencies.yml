@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  settlement_date: 2021-12-01
+  tenor: 2021-12-01
+  price: 9.99
+  exchange_id: 1
+
+two:
+  name: MyString
+  type: 
+  settlement_date: 2021-12-01
+  tenor: 2021-12-01
+  price: 9.99
+  exchange_id: 1
