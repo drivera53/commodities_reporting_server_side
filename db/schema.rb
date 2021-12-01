@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_12_01_160650) do
 
   create_table "currencies", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "c_type"
     t.date "settlement_date"
     t.date "tenor"
     t.decimal "price"

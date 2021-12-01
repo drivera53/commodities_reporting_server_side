@@ -56,7 +56,7 @@ rails generate scaffold exchange name
 rails generate scaffold commodity name unit price:decimal exchange_id:integer
 ```
 ```ruby
-rails generate scaffold currency name type settlement_date:date tenor:date price:decimal exchange_id:integer
+rails generate scaffold currency name c_type settlement_date:date tenor:date price:decimal exchange_id:integer
 ```
 * Assigning Has many / Belongs to relationships in `app\models`
 ```ruby
@@ -82,51 +82,15 @@ end
 ```ruby
 rails db:migrate
 ```
-
-
-
-
-
-
-
-
-
-* When having issues with 
-
-
-
-
-
+* Test console
+```ruby
+rails c
+user1 = User.create(:first_name => "Dan", :last_name => "Riv", :email => "test@gmail.com", :password => "test")
+exchange1 = Exchange.create(:name => "Chicago Mercantile Exchange")
+commodity1 = Commodity.create(:name => "WTI Crude Oil", :unit => "Barrel", :price => 67.19, :exchange_id => 1)
+currency1 = Currency.create(:name => "U.S. Dollar (USD)", :c_type => "Swap", :settlement_date => "2021-12-01 17:51:48.442516000 +0000", :tenor => "2021-12-01 17:51:48.442516000 +0000", :price => 1, :exchange_id => 1)
+```
 If you want to start with a fresh new database you may delete `development.sqlite` and `schema.rb`; then run:
 ```ruby
 rails db:migrate
 ```
-Make sure to fork its [front end repository](https://github.com/drivera53/webapp-cripto-react) as well.
-
-# Usage
-Run `rails s` or `rails server -p 3001` if you're currently using port 3000 in your front end. 
-You may also watch my [YouTube](https://www.youtube.com/watch?v=8Pp9b6Zprw8) video.
-
-# License
-[MIT](https://github.com/drivera53/react-flatcoin-rails-backend/blob/main/LICENSE)
-
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...

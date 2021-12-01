@@ -40,3 +40,73 @@ Migrating to CreateCurrencies (20211201160650)
   [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Dan"], ["last_name", "Riv"], ["email", "test@gmail.com"], ["password_digest", "$2a$12$JX93MH9lw5j4rvISXrQPseQDZhRh3EfkbdSGxJkC5cj4cbe3syAne"], ["created_at", "2021-12-01 16:52:29.611787"], ["updated_at", "2021-12-01 16:52:29.611787"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Create (0.4ms)[0m  [1m[32mINSERT INTO "exchanges" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chicago Mercantile Exchange"], ["created_at", "2021-12-01 17:46:20.525348"], ["updated_at", "2021-12-01 17:46:20.525348"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Create (0.5ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "unit", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "WTI Crude Oil"], ["unit", "Barrel"], ["price", 67.19], ["exchange_id", 1], ["created_at", "2021-12-01 17:51:48.442516"], ["updated_at", "2021-12-01 17:51:48.442516"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20211201155651)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "password_digest" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211201155651"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateExchanges (20211201155737)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mCREATE TABLE "exchanges" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211201155737"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCommodities (20211201160141)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "commodities" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "unit" varchar, "price" decimal, "exchange_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211201160141"]]
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateCurrencies (20211201160650)
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "currencies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "c_type" varchar, "settlement_date" date, "tenor" date, "price" decimal, "exchange_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20211201160650"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-12-01 18:01:41.752035"], ["updated_at", "2021-12-01 18:01:41.752035"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Create (8.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "password_digest", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Dan"], ["last_name", "Riv"], ["email", "test@gmail.com"], ["password_digest", "$2a$12$.aHL3RFRPclxGeLpsatQAuYjqWM3730pEnP.WgDCny8GJVosiNnSi"], ["created_at", "2021-12-01 18:04:14.425840"], ["updated_at", "2021-12-01 18:04:14.425840"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Create (0.4ms)[0m  [1m[32mINSERT INTO "exchanges" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Chicago Mercantile Exchange"], ["created_at", "2021-12-01 18:04:21.678326"], ["updated_at", "2021-12-01 18:04:21.678326"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Create (0.4ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "unit", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "WTI Crude Oil"], ["unit", "Barrel"], ["price", 67.19], ["exchange_id", 1], ["created_at", "2021-12-01 18:04:27.778318"], ["updated_at", "2021-12-01 18:04:27.778318"]]
+  [1m[36mTRANSACTION (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" ORDER BY "exchanges"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" ORDER BY "exchanges"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ? /* loading for inspect */ LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 11]]
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ? /* loading for inspect */ LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 11]]
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" ORDER BY "currencies"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCurrency Create (0.6ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "c_type", "settlement_date", "tenor", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "U.S. Dollar (USD)"], ["c_type", "Swap"], ["settlement_date", "2021-12-01"], ["tenor", "2021-12-01"], ["price", 1.0], ["exchange_id", 1], ["created_at", "2021-12-01 18:07:53.143732"], ["updated_at", "2021-12-01 18:07:53.143732"]]
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "currencies"[0m
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ? /* loading for inspect */ LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 11]]
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ? ORDER BY "currencies"."id" DESC LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 1]]
