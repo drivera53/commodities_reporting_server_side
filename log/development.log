@@ -110,3 +110,1261 @@ Migrating to CreateCurrencies (20211201160650)
   [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "currencies"[0m
   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ? /* loading for inspect */ LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 11]]
   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ? ORDER BY "currencies"."id" DESC LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2021-12-01 13:22:32 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cruser/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cruser/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 9.1ms | Allocations: 480)
+Completed 200 OK in 35ms (Views: 15.4ms | ActiveRecord: 0.0ms | Allocations: 4150)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-12-01 13:22:32 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/exchanges" for 127.0.0.1 at 2021-12-01 13:22:40 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.5ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 30ms (Views: 22.7ms | ActiveRecord: 1.1ms | Allocations: 8130)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 18:43:00 -0500
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.5ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.5ms)
+Completed 500 Internal Server Error in 83ms (ActiveRecord: 3.0ms | Allocations: 28522)
+
+
+  
+NoMethodError (undefined method `type' for #<Currency:0x00007fb0b8ae6f30>
+Did you mean?  c_type):
+  
+app/controllers/exchanges_controller.rb:8:in `index'
+Started GET "/" for ::1 at 2021-12-01 18:43:14 -0500
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/cruser/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/cruser/.rvm/gems/ruby-2.6.1/gems/railties-6.1.4.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 196)
+Completed 200 OK in 18ms (Views: 9.1ms | ActiveRecord: 0.0ms | Allocations: 1699)
+
+
+Started GET "/users" for ::1 at 2021-12-01 18:43:20 -0500
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 1.7ms | Allocations: 5590)
+
+
+Started GET "/users" for ::1 at 2021-12-01 18:43:20 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 4ms (Views: 3.8ms | ActiveRecord: 0.2ms | Allocations: 852)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 18:43:40 -0500
+Processing by CurrenciesController#index as HTML
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.92ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.2ms | Allocations: 3537)
+
+
+  
+NoMethodError (undefined method `type' for #<Currency:0x00007fb0bbb2ec10>
+Did you mean?  c_type):
+  
+app/controllers/currencies_controller.rb:8:in `index'
+Started GET "/currencies/1" for ::1 at 2021-12-01 18:43:53 -0500
+Processing by CurrenciesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/currencies_controller.rb:44:in `set_currency'
+[active_model_serializers] Rendered CurrencySerializer with ActiveModelSerializers::Adapter::Attributes (6.34ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.3ms | Allocations: 3429)
+
+
+  
+NoMethodError (undefined method `type' for #<Currency:0x00007fb0be2fc1e8>
+Did you mean?  c_type):
+  
+app/controllers/currencies_controller.rb:13:in `show'
+Started GET "/currencies" for ::1 at 2021-12-01 18:43:57 -0500
+Processing by CurrenciesController#index as HTML
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.29ms)
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.1ms | Allocations: 3435)
+
+
+  
+NoMethodError (undefined method `type' for #<Currency:0x00007fb0b8a788c8>
+Did you mean?  c_type):
+  
+app/controllers/currencies_controller.rb:8:in `index'
+Started GET "/commodities" for ::1 at 2021-12-01 18:44:28 -0500
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.42ms)
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.3ms | Allocations: 933)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 18:44:28 -0500
+Processing by CommoditiesController#index as */*
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms | Allocations: 857)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 18:44:42 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.99ms)
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.6ms | Allocations: 5508)
+
+
+  
+NoMethodError (undefined method `type' for #<Currency:0x00007fb0b8a4f810>
+Did you mean?  c_type):
+  
+app/controllers/exchanges_controller.rb:8:in `index'
+Started GET "/exchanges" for ::1 at 2021-12-01 18:46:47 -0500
+Processing by ExchangesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.48ms)
+Completed 500 Internal Server Error in 37ms (ActiveRecord: 3.0ms | Allocations: 20412)
+
+
+  
+NoMethodError (undefined method `type' for #<Currency:0x00007fb0b8b9dca8>
+Did you mean?  c_type):
+  
+app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" /* loading for inspect */ LIMIT ?[0m  [["LIMIT", 11]]
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" ORDER BY "exchanges"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ? /* loading for inspect */ LIMIT ?[0m  [["exchange_id", 1], ["LIMIT", 11]]
+Started GET "/exchanges" for ::1 at 2021-12-01 18:49:15 -0500
+Processing by ExchangesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.12ms)
+Completed 200 OK in 33ms (Views: 30.0ms | ActiveRecord: 3.2ms | Allocations: 17902)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 18:49:15 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.6ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.98ms)
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.9ms | Allocations: 3008)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Create (8.9ms)[0m  [1m[32mINSERT INTO "exchanges" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "New York Mercantile Exchange"], ["created_at", "2021-12-01 23:50:28.390771"], ["updated_at", "2021-12-01 23:50:28.390771"]]
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/exchanges" for ::1 at 2021-12-01 18:50:34 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.52ms)
+Completed 200 OK in 17ms (Views: 15.2ms | ActiveRecord: 1.0ms | Allocations: 4920)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 18:50:34 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (53.69ms)
+Completed 200 OK in 58ms (Views: 56.2ms | ActiveRecord: 0.9ms | Allocations: 4925)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 18:50:48 -0500
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.41ms)
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms | Allocations: 928)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 18:50:48 -0500
+Processing by CommoditiesController#index as */*
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.58ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.2ms | Allocations: 857)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 18:51:00 -0500
+Processing by CurrenciesController#index as HTML
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.9ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.2ms | Allocations: 966)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 18:51:00 -0500
+Processing by CurrenciesController#index as */*
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.94ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 891)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 18:52:21 -0500
+Processing by CurrenciesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (8.63ms)
+Completed 200 OK in 27ms (Views: 25.4ms | ActiveRecord: 1.7ms | Allocations: 12309)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 18:52:21 -0500
+Processing by CurrenciesController#index as */*
+  [1m[36mCurrency Load (1.0ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.87ms)
+Completed 200 OK in 8ms (Views: 6.2ms | ActiveRecord: 1.3ms | Allocations: 1852)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 18:52:37 -0500
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.59ms)
+Completed 200 OK in 19ms (Views: 15.8ms | ActiveRecord: 1.5ms | Allocations: 6394)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 18:52:37 -0500
+Processing by CommoditiesController#index as */*
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.68ms)
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.4ms | Allocations: 1818)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 18:58:12 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.59ms)
+Completed 200 OK in 19ms (Views: 17.0ms | ActiveRecord: 1.3ms | Allocations: 5537)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 18:58:13 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.5ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.33ms)
+Completed 200 OK in 36ms (Views: 34.2ms | ActiveRecord: 1.4ms | Allocations: 4929)
+
+
+Started GET "/users" for ::1 at 2021-12-01 19:04:09 -0500
+Processing by UsersController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.45ms)
+Completed 200 OK in 17ms (Views: 15.1ms | ActiveRecord: 1.6ms | Allocations: 5813)
+
+
+Started GET "/users" for ::1 at 2021-12-01 19:04:09 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms | Allocations: 851)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 19:08:36 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (1.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.65ms)
+Completed 200 OK in 21ms (Views: 18.1ms | ActiveRecord: 2.3ms | Allocations: 4979)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 19:08:36 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.66ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 1.2ms | Allocations: 4928)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 19:14:40 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (36.5ms)
+Completed 200 OK in 64ms (Views: 51.5ms | ActiveRecord: 2.8ms | Allocations: 27007)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 19:14:40 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.43ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 1.0ms | Allocations: 4929)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 19:14:41 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.4ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.63ms)
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 1.1ms | Allocations: 4946)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 19:14:42 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.29ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 1.0ms | Allocations: 4928)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:18:46 -0500
+Processing by ExchangesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.88ms)
+Completed 200 OK in 19ms (Views: 18.5ms | ActiveRecord: 1.5ms | Allocations: 5598)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:18:47 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.45ms)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.9ms | Allocations: 4928)
+
+
+Started GET "/users" for ::1 at 2021-12-01 20:36:02 -0500
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.48ms)
+Completed 200 OK in 19ms (Views: 11.4ms | ActiveRecord: 1.0ms | Allocations: 9311)
+
+
+Started GET "/users" for ::1 at 2021-12-01 20:36:02 -0500
+Processing by UsersController#index as */*
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.2ms | Allocations: 852)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:36:05 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (37.42ms)
+Completed 200 OK in 62ms (Views: 52.4ms | ActiveRecord: 3.4ms | Allocations: 22839)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:36:06 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.6ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.84ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 1.4ms | Allocations: 4928)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:37:26 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.42ms)
+Completed 200 OK in 15ms (Views: 13.6ms | ActiveRecord: 0.9ms | Allocations: 4949)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:42:32 -0500
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.1ms)
+Completed 200 OK in 73ms (Views: 59.7ms | ActiveRecord: 3.1ms | Allocations: 27036)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:47:31 -0500
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.84ms)
+Completed 200 OK in 71ms (Views: 57.9ms | ActiveRecord: 3.1ms | Allocations: 27007)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 20:48:36 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.33ms)
+Completed 200 OK in 19ms (Views: 17.9ms | ActiveRecord: 1.0ms | Allocations: 4954)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 21:15:34 -0500
+Processing by ExchangesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.08ms)
+Completed 200 OK in 18ms (Views: 17.6ms | ActiveRecord: 1.4ms | Allocations: 5607)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:33:17 -0500
+Processing by ExchangesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.83ms)
+Completed 200 OK in 17ms (Views: 16.1ms | ActiveRecord: 1.4ms | Allocations: 5607)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:43:15 -0500
+Processing by ExchangesController#index as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (1.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.4ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (42.54ms)
+Completed 200 OK in 48ms (Views: 47.7ms | ActiveRecord: 2.9ms | Allocations: 5586)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:45:36 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.28ms)
+Completed 200 OK in 16ms (Views: 14.1ms | ActiveRecord: 1.0ms | Allocations: 4933)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:51:46 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (69.28ms)
+Completed 200 OK in 102ms (Views: 88.5ms | ActiveRecord: 3.8ms | Allocations: 27063)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:51:47 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.53ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 1.1ms | Allocations: 4968)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:52:36 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.6ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.43ms)
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 1.3ms | Allocations: 4988)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:54:19 -0500
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (53.19ms)
+Completed 200 OK in 82ms (Views: 69.5ms | ActiveRecord: 3.5ms | Allocations: 27171)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 22:54:19 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.6ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.57ms)
+Completed 200 OK in 20ms (Views: 18.1ms | ActiveRecord: 1.3ms | Allocations: 5002)
+
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCommodity Create (0.4ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "unit", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Brent Crude Oil"], ["unit", "Barrel"], ["price", 69.57], ["exchange_id", 2], ["created_at", "2021-12-02 04:04:24.912751"], ["updated_at", "2021-12-02 04:04:24.912751"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/exchanges" for ::1 at 2021-12-01 23:04:30 -0500
+Processing by ExchangesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.4ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.41ms)
+Completed 200 OK in 20ms (Views: 19.7ms | ActiveRecord: 1.8ms | Allocations: 5880)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCommodity Create (0.4ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "unit", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Natural Gas"], ["unit", "Million BTUs"], ["price", 4.29], ["exchange_id", 2], ["created_at", "2021-12-02 04:07:07.757619"], ["updated_at", "2021-12-02 04:07:07.757619"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/exchanges" for ::1 at 2021-12-01 23:07:12 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.34ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 1.0ms | Allocations: 5431)
+
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCommodity Create (0.3ms)[0m  [1m[32mINSERT INTO "commodities" ("name", "unit", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "Unleaded Gas"], ["unit", "Gallon"], ["price", 1.98], ["exchange_id", 1], ["created_at", "2021-12-02 04:08:13.996843"], ["updated_at", "2021-12-02 04:08:13.996843"]]
+  [1m[36mTRANSACTION (2.6ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/exchanges" for ::1 at 2021-12-01 23:08:17 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.66ms)
+Completed 200 OK in 18ms (Views: 17.0ms | ActiveRecord: 1.1ms | Allocations: 5635)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 23:11:15 -0500
+Processing by CurrenciesController#index as HTML
+  [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.27ms)
+Completed 200 OK in 37ms (Views: 35.8ms | ActiveRecord: 0.5ms | Allocations: 2199)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 23:11:15 -0500
+Processing by CurrenciesController#index as */*
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.58ms)
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.3ms | Allocations: 1888)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 23:11:18 -0500
+Processing by CurrenciesController#index as HTML
+  [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.37ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.4ms | Allocations: 1884)
+
+
+Started GET "/currencies" for ::1 at 2021-12-01 23:11:18 -0500
+Processing by CurrenciesController#index as */*
+  [1m[36mCurrency Load (0.4ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies"[0m
+  ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/currencies_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.23ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.6ms | Allocations: 1888)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 23:11:29 -0500
+Processing by CommoditiesController#index as HTML
+  [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Exchange Load (0.0ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Exchange Load (0.0ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.25ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 0.9ms | Allocations: 5460)
+
+
+Started GET "/commodities" for ::1 at 2021-12-01 23:11:29 -0500
+Processing by CommoditiesController#index as */*
+  [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities"[0m
+  ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Exchange Load (0.0ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCACHE Exchange Load (0.0ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   ↳ app/controllers/commodities_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.52ms)
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.7ms | Allocations: 5178)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:16:19 -0500
+Processing by ExchangesController#index as HTML
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.61ms)
+Completed 200 OK in 24ms (Views: 22.4ms | ActiveRecord: 1.1ms | Allocations: 5610)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:16:20 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.7ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (14.7ms)
+Completed 200 OK in 19ms (Views: 16.9ms | ActiveRecord: 1.4ms | Allocations: 5614)
+
+
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges" WHERE "exchanges"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCurrency Create (0.4ms)[0m  [1m[32mINSERT INTO "currencies" ("name", "c_type", "settlement_date", "tenor", "price", "exchange_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Euro (EUR)"], ["c_type", "Swap"], ["settlement_date", "2021-12-01"], ["tenor", "2021-12-01"], ["price", 1.1328], ["exchange_id", 2], ["created_at", "2021-12-02 04:21:27.027811"], ["updated_at", "2021-12-02 04:21:27.027811"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/exchanges" for ::1 at 2021-12-01 23:21:30 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.82ms)
+Completed 200 OK in 20ms (Views: 19.0ms | ActiveRecord: 0.9ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:23:48 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.02ms)
+Completed 200 OK in 19ms (Views: 18.2ms | ActiveRecord: 0.8ms | Allocations: 5882)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:24:42 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.03ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.8ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:31:55 -0500
+Processing by ExchangesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.99ms)
+Completed 200 OK in 16ms (Views: 15.8ms | ActiveRecord: 1.3ms | Allocations: 6515)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:33:44 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.5ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (18.39ms)
+Completed 200 OK in 21ms (Views: 19.5ms | ActiveRecord: 1.4ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:33:49 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.79ms)
+Completed 200 OK in 19ms (Views: 17.5ms | ActiveRecord: 1.0ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:33:53 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.31ms)
+Completed 200 OK in 31ms (Views: 29.6ms | ActiveRecord: 0.8ms | Allocations: 5862)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:35:53 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.47ms)
+Completed 200 OK in 23ms (Views: 21.2ms | ActiveRecord: 1.0ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:36:02 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (17.53ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 1.0ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:36:12 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.81ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 1.0ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:43:32 -0500
+Processing by ExchangesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.52ms)
+Completed 200 OK in 16ms (Views: 15.6ms | ActiveRecord: 1.6ms | Allocations: 6514)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:43:42 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.13ms)
+Completed 200 OK in 18ms (Views: 16.4ms | ActiveRecord: 0.8ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:43:47 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (11.11ms)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.8ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:43:56 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.15ms)
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.8ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:49:05 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.89ms)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 1.0ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:49:56 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.5ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.72ms)
+Completed 200 OK in 21ms (Views: 19.3ms | ActiveRecord: 1.1ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:50:01 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.6ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (16.93ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 1.5ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:50:06 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (12.57ms)
+Completed 200 OK in 14ms (Views: 13.2ms | ActiveRecord: 1.0ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:50:13 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.2ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.4ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.4ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.2ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (15.91ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 1.3ms | Allocations: 5861)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:51:15 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.3ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.3ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.3ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (34.57ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 1.3ms | Allocations: 5862)
+
+
+Started GET "/exchanges" for ::1 at 2021-12-01 23:51:50 -0500
+Processing by ExchangesController#index as */*
+  [1m[36mExchange Load (0.1ms)[0m  [1m[34mSELECT "exchanges".* FROM "exchanges"[0m
+  ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.2ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (1.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 1]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCommodity Load (0.1ms)[0m  [1m[34mSELECT "commodities".* FROM "commodities" WHERE "commodities"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers]   [1m[36mCurrency Load (0.1ms)[0m  [1m[34mSELECT "currencies".* FROM "currencies" WHERE "currencies"."exchange_id" = ?[0m  [["exchange_id", 2]]
+[active_model_serializers]   ↳ app/controllers/exchanges_controller.rb:8:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (13.88ms)
+Completed 200 OK in 16ms (Views: 13.7ms | ActiveRecord: 1.7ms | Allocations: 5861)
+
+

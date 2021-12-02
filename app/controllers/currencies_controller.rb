@@ -46,6 +46,6 @@ class CurrenciesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def currency_params
-      params.require(:currency).permit(:name, :type, :settlement_date, :tenor, :price, :exchange_id)
+      params.require(:currency).permit(:name, :c_type, :settlement_date, :tenor, :price, :exchange_id)
     end
 end
