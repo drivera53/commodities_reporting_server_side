@@ -18,7 +18,13 @@ class CurrenciesController < ApplicationController
     @currency = Currency.new(currency_params)
 
     if @currency.save
-      render json: @currency, status: :created, location: @currency
+      exchanges = Exchange.all
+      exchanges_json = exchanges.to_json(:include => [
+        :commodities, :currencies])
+      # render json: @exchange, status: :created, location: @exchange
+      render json: {
+        exchanges: exchanges_json
+      }
     else
       render json: @currency.errors, status: :unprocessable_entity
     end

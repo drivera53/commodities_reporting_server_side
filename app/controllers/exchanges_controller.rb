@@ -16,9 +16,14 @@ class ExchangesController < ApplicationController
   # POST /exchanges
   def create
     @exchange = Exchange.new(exchange_params)
-
     if @exchange.save
-      render json: @exchange, status: :created, location: @exchange
+      exchanges = Exchange.all
+      exchanges_json = exchanges.to_json(:include => [
+        :commodities, :currencies])
+      # render json: @exchange, status: :created, location: @exchange
+      render json: {
+        exchanges: exchanges_json
+      }
     else
       render json: @exchange.errors, status: :unprocessable_entity
     end
@@ -38,6 +43,32 @@ class ExchangesController < ApplicationController
     @exchange.destroy
   end
 
+  def special_destroy
+    # print(exchange_params[:name])
+    # print(exchange_params[:id])
+    # print(exchange_params)
+    # exchange = Exchange.find(params[:id])
+    exchange = Exchange.find(exchange_params[:id]) 
+    # Iterate over each commodity
+    exchange.commodities.each do |commodity|
+      commodity.destroy
+    end
+    # Iterate over each currency
+    exchange.currencies.each do |currency|
+      currency.destroy
+    end
+    if exchange.destroy
+      exchanges = Exchange.all
+      exchanges_json = exchanges.to_json(:include => [
+        :commodities, :currencies])
+      render json: {
+        exchanges: exchanges_json
+      }
+    else
+      render json: {error: "Error deleting Exchange!"}
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_exchange
@@ -46,6 +77,6 @@ class ExchangesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def exchange_params
-      params.require(:exchange).permit(:name)
+      params.require(:exchange).permit(:name, :id)
     end
 end

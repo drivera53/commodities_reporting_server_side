@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  delete '/exchanges/special_delete', to: "exchanges#special_destroy"
+
   resources :currencies
   resources :commodities
   resources :exchanges

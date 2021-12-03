@@ -18,7 +18,13 @@ class CommoditiesController < ApplicationController
     @commodity = Commodity.new(commodity_params)
 
     if @commodity.save
-      render json: @commodity, status: :created, location: @commodity
+      exchanges = Exchange.all
+      exchanges_json = exchanges.to_json(:include => [
+        :commodities, :currencies])
+      # render json: @exchange, status: :created, location: @exchange
+      render json: {
+        exchanges: exchanges_json
+      }
     else
       render json: @commodity.errors, status: :unprocessable_entity
     end
