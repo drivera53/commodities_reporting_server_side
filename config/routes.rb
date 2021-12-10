@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   delete '/commodities/special_delete', to: "commodities#special_destroy"
   delete '/currencies/special_delete', to: "currencies#special_destroy"
 
+  post '/login', to: "session#login"
+  get '/auto-login', to: "session#auto_login"
+
   resources :currencies
   resources :commodities
   resources :exchanges

@@ -85,7 +85,7 @@ rails db:migrate
 * Test console
 ```ruby
 rails c
-user1 = User.create(:first_name => "Dan", :last_name => "Riv", :email => "test@gmail.com", :password => "test")
+user1 = User.create(:first_name => "Dan", :last_name => "Riv", :email => "dan@test.com", :password => "test")
 Exchange.create(:name => "Chicago Mercantile Exchange")
 Exchange.create(:name => "New York Mercantile Exchange")
 Commodity.create(:name => "WTI Crude Oil", :unit => "Barrel", :price => 67.19, :exchange_id => 1)
